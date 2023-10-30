@@ -5,7 +5,7 @@ const app=express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+const PORT=3000;
 
 
 const db = mysql.createConnection(
@@ -79,4 +79,9 @@ app.delete("/api/movie/:id",(req,res)=>{
             res.json({message:"Movie deleted successfully"})
         }
     })
+})
+
+
+app.listen(PORT,()=>{
+    console.log(`Local host is : http://localhost:${PORT}`);
 })
